@@ -8,19 +8,31 @@ bool Modus_user::login(QString name, QString pass){
     };
 
     Tresultset * res = auth_user(name,pass);
-    if(res->length() > 0){
+     if(res->length() > 0){
      full_n = res->at(0).value("fullname");
      nick = name;
-     userid = res->at(0).value("ID");
+     userid = res->at(0).value("id");
      l_state = true;
+   // get companies
+     Tresultset * comps = get_user_comps(userid);
+      if(comps->length() > 0){
+        log(LOG, "User logging in...");
+        for(int i=0; i< comps->length(); i++){
+            QStringList sl;
+            sl << comps->at(i).value("cid") << comps->at(i).value("name");
+            cids.append(sl);
+            log(LOG, "Added company: " + comps->at(i).value("name"));
+        }
+      }
      emit logged_in();
      log(LOG, "User: "+fullname()+" logged in!");
      return true;
+
     }else{
      return false;
      log(ER, "Authentication error");
     };
-
+//delete comps;
 delete res;
 }
 
@@ -32,6 +44,7 @@ void Modus_user::logout(){
     nick   = "";
     userid = "";
     l_state = false;
+    cids.clear();
     emit logged_out();
     emit log(LOG, "User logged out"); };
 }

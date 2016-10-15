@@ -27,17 +27,19 @@ private:
     QString nick = "";
     QString last_er = "";
     void log(MSG_TYPE tp, QString msg);
+    QVector<QStringList> cids;
 public:
-    Modus_user(){setObjectName("User management");};
-    ~Modus_user(){};
-    const QString fullname() {return full_n;} ;
-    const QString nickname() {return nick;};
-    const bool is_logged_in() {return l_state;};
-    const QString user_id() {return userid;};
-    const QString last_error() {return last_er;};
+    Modus_user(){setObjectName("User management");}
+    ~Modus_user(){}
+    const QString fullname() {return full_n;}
+    const QString nickname() {return nick;}
+    const bool is_logged_in() {return l_state;}
+    const QString user_id() {return userid;}
+    const QString last_error() {return last_er;}
+    const QVector<QStringList> available_companies(){return cids;}
     bool login(QString name, QString pass);
+    void ReFresh();
     void logout();
-
 signals:
     void logged_out();
     void logged_in();

@@ -1,0 +1,16 @@
+INPUT(
+./release\main.o
+./release\mainwindow.o
+./release\common_helper.o
+./release\db_common.o
+./release\mo_user.o
+./release\mo_queries.o
+./release\mo_core.o
+./release\mo_module.o
+./release\common_file_downloader.o
+./release\moc_mainwindow.o
+./release\moc_mo_core.o
+./release\moc_mo_user.o
+./release\moc_mo_module.o
+./release\moc_common_file_downloader.o
+);

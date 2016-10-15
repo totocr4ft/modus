@@ -3,10 +3,13 @@
 #include <QObject>
 #include <mo_include.h>
 #include <mo_user.h>
+#include <mo_module.h>
 
 class Modus : public QObject{
     Q_OBJECT
  private:
+    QMap<QString,Modus_NR_module> * avail;
+    QMap<QString,Modus_R_module> * running;
  public:
    Modus_user * user;
    Modus();

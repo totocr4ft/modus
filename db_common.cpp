@@ -40,7 +40,7 @@ int i,y=0;
     Tresultset * Res = new Tresultset ;
     Tresult Temp;
     while(q.next()){
-        for(i=0;i<q.record().count() - 1; i++){
+        for(i=0;i<q.record().count(); i++){
           Temp.insert(q.record().fieldName(i), q.value(i).toString());
         }
         Res->append(Temp);
@@ -61,7 +61,7 @@ int i,y=0;
     Tresultset * Res = new Tresultset ;
     Tresult Temp;
     while(q.next()){
-        for(i=0;i<q.record().count() - 1; i++){
+        for(i=0;i<q.record().count(); i++){
           Temp.insert(q.record().fieldName(i), q.value(i).toString());
         }
         Res->append(Temp);

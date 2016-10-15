@@ -18,7 +18,9 @@ SOURCES += main.cpp\
     db_common.cpp \
     mo_user.cpp \
     mo_queries.cpp \
-    mo_core.cpp
+    mo_core.cpp \
+    mo_module.cpp \
+    common_file_downloader.cpp
 
 HEADERS  += mainwindow.h \
     common_helper.h \
@@ -27,6 +29,8 @@ HEADERS  += mainwindow.h \
     mo_user.h \
     mo_module.h \
     mo_include.h \
-    mo_queries.h
+    mo_queries.h \
+    common_file_downloader.h
 
 FORMS    += mainwindow.ui
+LIBS += -lVersion

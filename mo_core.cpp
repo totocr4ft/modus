@@ -14,7 +14,7 @@ Modus::~Modus(){
 void Modus::on_log(MSG_TYPE tp , QString msg){
   qDebug() << QDateTime::currentDateTime().date().toString() << QDateTime::currentDateTime().time().toString()
            << " Type: "  <<  tp
-           << "Sender: " << sender()->objectName()
+           << " Sender: " << sender()->objectName()
            << " Message: " << msg;
 }
 

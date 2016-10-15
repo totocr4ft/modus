@@ -10,7 +10,7 @@ class TdataBase{
 public:
    QSqlDatabase Connection;
    TdataBase( QString u_name = "admin", QString pass="theforce1", QString database = "modus", QString host = "192.168.0.43");
-   ~TdataBase(){ Connection.close(); };
+   ~TdataBase(){ Connection.close(); }
    Tresultset * run_query(QString qstr, Tparams params);
    Tresultset * run_query(QString qstr);
 };

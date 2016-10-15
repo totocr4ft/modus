@@ -1,0 +1,16 @@
+INPUT(
+./debug\main.o
+./debug\mainwindow.o
+./debug\common_helper.o
+./debug\db_common.o
+./debug\mo_user.o
+./debug\mo_queries.o
+./debug\mo_core.o
+./debug\mo_module.o
+./debug\common_file_downloader.o
+./debug\moc_mainwindow.o
+./debug\moc_mo_core.o
+./debug\moc_mo_user.o
+./debug\moc_mo_module.o
+./debug\moc_common_file_downloader.o
+);
