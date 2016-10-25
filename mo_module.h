@@ -27,7 +27,7 @@ class Modus_module: public QObject{
     virtual QString new_version()=0;
     const QString place() {return tab;}
     const QString last_error() {return last_er;}
-    const bool is_valid() {return valid;}
+    bool is_valid() {return valid;}
   signals:
     void on_log(MSG_TYPE t, QString msg);
 };
@@ -36,13 +36,16 @@ class Modus_NR_module : public Modus_module{
       Q_OBJECT
 public:
     Modus_NR_module(int mid=0);
-    ~Modus_NR_module(){}
-    QString current_version(){}
-    QString new_version(){}
+    ~Modus_NR_module();
+    QString current_version(){return current_ver;}
+    QString new_version(){return new_ver;}
+    qint8 get_update_error(){return upd_error;}
     QString update_server = "http://modus.ddns.net";
-   void check_update();
+    void check_update();
+    void auto_update();
 private:
     Url_downloader * downloader;
+    qint8 upd_error=0;
     void do_update();
     bool runnable;
     bool auto_upd=false;
@@ -54,6 +57,7 @@ signals:
     void updateReady();
 private slots:
     void chk_ready(QByteArray * reply);
+    void upd_er(qint8 er);
 };
 
 class Modus_R_module : public Modus_module{

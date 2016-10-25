@@ -20,12 +20,14 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    Modus_NR_module * m;
+    Modus * m;
 
 private slots:
-    void on_pushButton_clicked();
-    void on_pushButton_2_clicked();
     void on_log(MSG_TYPE t, QString msg);
+
+    void on_pushButton_3_clicked();
+
+    void on_pushButton_4_clicked();
 
 private:
     Ui::MainWindow *ui;

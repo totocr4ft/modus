@@ -43,7 +43,7 @@ LPVOID lpData = new BYTE[dwLen];
 if(!GetFileVersionInfo(fName.toStdWString().c_str(), dwHandle, dwLen, lpData))
 {
 //qDebug() << “error in GetFileVersionInfo”;
-delete[] lpData;
+delete lpData;
 return "";
 }
 

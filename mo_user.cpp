@@ -29,8 +29,8 @@ bool Modus_user::login(QString name, QString pass){
      return true;
 
     }else{
-     return false;
      log(ER, "Authentication error");
+     return false;
     };
 //delete comps;
 delete res;

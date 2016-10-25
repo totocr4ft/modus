@@ -14,6 +14,8 @@ class Modus : public QObject{
    Modus_user * user;
    Modus();
    ~Modus();
+ signals:
+  void log(MSG_TYPE tp, QString msg);
  private slots:
   void on_log(MSG_TYPE tp, QString msg);
 };

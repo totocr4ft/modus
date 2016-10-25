@@ -12,10 +12,7 @@ int main(int argc, char *argv[])
     a.setApplicationVersion("1000");
     MainWindow w;
     w.show();
-   /* Modus * m = new Modus;
-    m->user->login("toto","t");
-    qDebug() << m->user->available_companies();
-    */
+
   /*  Url_downloader d("http://modus.ddns.net/MODULES/m_jelentkezes/1005/jelentkezes.exe","D:/jelentkezes.exe");
     d.filename = "D:/jelentkezes1.exe";
     d.download();*/

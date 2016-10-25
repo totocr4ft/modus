@@ -42,19 +42,29 @@ return true;
 }
 
 void Url_downloader::save_data(QNetworkReply * _reply){
-    log(SYS,"Downloading finished");
-    *data = _reply->readAll();
-    log(SYS, QString::number( data->length()) + " Bytes received ");
-    if(filename != "")
-       {
-        log(SYS,"Writing data to file: " + filename);
-        QFile file(filename);
-        file.open(QIODevice::WriteOnly);
-        file.write(*data);
-        file.close();
-       }
+ if(_reply->error() == 0)
+  {
+   log(SYS,"Downloading finished");
+   *data = _reply->readAll();
+   log(SYS, QString::number( data->length()) + " Bytes received ");
+   if(filename != "")
+     {
+      log(SYS,"Writing data to file: " + filename);
+      QFile file(filename);
+      file.open(QIODevice::WriteOnly);
+      file.write(*data);
+      file.close();
+     }
+    emit download_ready(data);
+  }else
+     {
+      log(SYS,"Download error");
+      emit download_error(_reply->error());
+     }
+
+
 _reply->deleteLater();
-emit download_ready(data);
+
 }
 
 void Url_downloader::log(MSG_TYPE l, QString t){

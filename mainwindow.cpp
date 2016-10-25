@@ -7,6 +7,8 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->listWidget->addItem("asdasd");
+    m = new Modus;
+    connect(m,SIGNAL(log(MSG_TYPE,QString)),this,SLOT(on_log(MSG_TYPE,QString)));
 }
 
 MainWindow::~MainWindow()
@@ -14,17 +16,17 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_pushButton_clicked()
-{
-   m = new Modus_NR_module(1);
-   connect(m,SIGNAL(on_log(MSG_TYPE,QString)),SLOT(on_log(MSG_TYPE,QString)));
-}
-
-void MainWindow::on_pushButton_2_clicked()
-{
-  m->check_update();
-}
 
 void MainWindow::on_log(MSG_TYPE t, QString msg){
- ui->listWidget->addItem(msg);
+ if(t != SYS) ui->listWidget->addItem(msg);
+}
+
+void MainWindow::on_pushButton_3_clicked()
+{
+  m->user->login(ui->e_name->text(),ui->e_pass->text());
+}
+
+void MainWindow::on_pushButton_4_clicked()
+{
+  m->user->logout();
 }

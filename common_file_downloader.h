@@ -24,6 +24,7 @@ class Url_downloader: public QObject{
     bool save_to_file(QString fname);
    signals:
     void download_ready(QByteArray * data);
+    void download_error(qint8 er);
     void download_started();
     void on_log(MSG_TYPE l, QString t );
    private slots:

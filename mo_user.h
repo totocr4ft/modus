@@ -33,7 +33,7 @@ public:
     ~Modus_user(){}
     const QString fullname() {return full_n;}
     const QString nickname() {return nick;}
-    const bool is_logged_in() {return l_state;}
+    bool is_logged_in() {return l_state;}
     const QString user_id() {return userid;}
     const QString last_error() {return last_er;}
     const QVector<QStringList> available_companies(){return cids;}
